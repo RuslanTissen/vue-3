@@ -1,17 +1,18 @@
 <template>
 	<div class="App">
-		<form>
+		<form @submit.prevent>
 			<h4>Post Creation</h4>
-			<input v-bind:value="title" class="input" type="text" placeholder="Discription">
-			<input v-bind:value="body" class="input" type="text" placeholder="Post name">
+			<input v-bind:value="title" @input="title = $event.target.value" class="input" type="text" placeholder="Name">
+			<input v-bind:value="body" @input="body = $event.target.value" class="input" type="text"
+				placeholder="Discription">
 			<button class="btn" @click="createPost">
 				Create
 			</button>
 		</form>
 	</div>
 	<div class="post" v-for="post in posts">
-		<div><strong>Name </strong>{{ post.title }}</div>
-		<div><strong>Discription </strong>{{ post.body }}</div>
+		<div><strong>Name: </strong>{{ post.title }}</div>
+		<div><strong>Discription: </strong>{{ post.body }}</div>
 	</div>
 </template>
 
@@ -30,11 +31,27 @@ export default {
 	},
 	methods: {
 		createPost() {
-
-		}
+			const newPost = {
+				id: Date.now(),
+				title: this.title,
+				body: this.body,
+			}
+			this.posts.push(newPost);
+			this.title = "";
+			this.body = "";
+		},
 	}
 }
 </script>
+
+
+
+
+
+
+
+
+
 
 <style >
 * {
@@ -63,6 +80,7 @@ form {
 	border: 1px solid teal;
 	padding: 10px 15px;
 	margin-top: 15px;
+	color: red;
 }
 
 .btn {
