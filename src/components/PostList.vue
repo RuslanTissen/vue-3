@@ -7,8 +7,19 @@
 
 <script>
 export default {
-
+	props: {
+		posts: {
+			type: Array,
+			required: true
+		}
+	}
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style  scoped>
+.post {
+	margin-top: 15px;
+	padding: 15px;
+	border: 2px solid teal;
+}
+</style>
