@@ -1,22 +1,26 @@
 <template>
 	<div class="post">
-		<div><strong>Name: </strong>{{ post.title }}</div>
-		<div><strong>Discription: </strong>{{ post.body }}</div>
+		<div>
+			<div><strong>Name: </strong>{{ post.title }}</div>
+			<div><strong>Discription: </strong>{{ post.body }}</div>
+		</div>
 		<div class="post__btns">
-			<button>Delete</button>
+			<my-button>Delete</my-button>
 		</div>
 	</div>
 </template>
 
 <script>
-	export default {
-		props:{
-			post:{
-				type: Object,
-				required: true,
-			}
+import MyButton from "../components/UI/MyButton"
+export default {
+	components: { MyButton },
+	props: {
+		post: {
+			type: Object,
+			required: true,
 		}
 	}
+}
 </script>
 
 <style  scoped>
