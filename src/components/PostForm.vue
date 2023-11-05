@@ -3,7 +3,7 @@
 		<h4>Post Creation</h4>
 		<input v-model="post.title" class="input" type="text" placeholder="Name">
 		<input v-model="post.body" class="input" type="text" placeholder="Discription">
-		<my-button style="align-self: flex-end;" @click="createPost">
+		<my-button style="align-self: flex-end; margin-top: 15px ;" @click="createPost">
 			Create
 		</my-button>
 	</form>
